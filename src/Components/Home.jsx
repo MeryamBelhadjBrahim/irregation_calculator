@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div
       style={{
-        backgroundImage: `url(${palmierImage})`,
+        // backgroundImage: `url(${palmierImage})`,
         backgroundSize: "cover",
         height: "100vh",
       }}

@@ -9,7 +9,7 @@ export default function Conception() {
   return (
     <div
       style={{
-        backgroundImage: `url(${conception})`,
+        // backgroundImage: `url(${conception})`,
         backgroundSize: "cover",
         height: "100vh",
       }}

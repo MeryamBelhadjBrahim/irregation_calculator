@@ -66,7 +66,7 @@ export default function Dose() {
   return (
     <div
       style={{
-        backgroundImage: `url(${DoseImage})`,
+        // backgroundImage: `url(${DoseImage})`,
         backgroundSize: "contain",
         height: "100vh",
       }}
