@@ -1,6 +1,7 @@
 import React from "react";
 import Select from "react-select";
 import { Card, CardBody, Button } from "reactstrap";
+import goute from "../assets/goute.jpg";
 
 export default function GouteAGoute() {
   let types = [
@@ -41,7 +42,14 @@ export default function GouteAGoute() {
   }
 
   return (
-    <React.Fragment>
+    <div
+      style={{
+        backgroundImage: `url(${goute})`,
+        backgroundSize: "cover",
+        height: "100vh",
+      }}
+    >
+      {" "}
       <div
         style={{
           textAlign: "center",
@@ -100,11 +108,11 @@ export default function GouteAGoute() {
               Calculer
             </Button>
             {result !== "" ? (
-              <div>La pluviométrie est égal à {result}</div>
+              <div>La pluviométrie est égal à {result} mm.</div>
             ) : null}
           </form>
         </CardBody>
       </Card>
-    </React.Fragment>
+    </div>
   );
 }

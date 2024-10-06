@@ -33,9 +33,9 @@ export default function Dose() {
     "Palmier datier": 9.8,
   };
   let sols = [
-    { label: "sols lourds ", value: 0.75 },
-    { label: "sols moyens ", value: 0.58 },
-    { label: "sols legers ", value: 0.35 },
+    { label: "sols lourds ", value: 0.2 },
+    { label: "sols moyens ", value: 0.25 },
+    { label: "sols legers ", value: 0.33 },
   ];
   const [typeCulture, setTypeCulture] = React.useState("");
   const [typeSol, setTypeSol] = React.useState("");
@@ -57,9 +57,10 @@ export default function Dose() {
     }
     if (typeCulture !== "" && typeSol !== "" && plante !== "") {
       let ETC = evaporation[plante.label];
-      let humidité = 1;
+      let humidité = typeSol.value;
       let RFU = (2 / 3) * plante.value * humidité;
       setResult(RFU + ETC);
+      localStorage.setItem("besoin", JSON.stringify(result));
     }
   }
 
@@ -108,9 +109,9 @@ export default function Dose() {
                   setResult("");
                 }}
               />
-              {inputPlante ? (
+              {inputTypeCulture ? (
                 <div style={{ color: "red" }}>
-                  Veuillez selectionner le nom du plante
+                  Veuillez selectionner le type de culture
                 </div>
               ) : null}
             </div>
@@ -126,9 +127,10 @@ export default function Dose() {
                     setResult("");
                   }}
                 />
-                {inputTypeCulture ? (
+
+                {inputPlante ? (
                   <div style={{ color: "red" }}>
-                    Veuillez selectionner le type de culture
+                    Veuillez selectionner le nom du plante
                   </div>
                 ) : null}
               </div>
@@ -174,7 +176,9 @@ export default function Dose() {
               Calculer
             </Button>
             {result !== "" ? (
-              <div>Le besoin de la plante en eau est égal à {result}</div>
+              <div>
+                Le besoin de la plante en eau est égal à {result} mm/jour
+              </div>
             ) : null}
           </form>
         </CardBody>
