@@ -2,7 +2,8 @@ import React from "react";
 import { Card, CardBody, Button, Input } from "reactstrap";
 import Select from "react-select";
 import bassin from "../assets/bassin.webp";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export default function Temps() {
   let pentes = [
     { label: 0.2, value: 0.2 },
@@ -20,8 +21,22 @@ export default function Temps() {
 
   function handleCalculate() {
     let besoin = JSON.parse(localStorage.getItem("besoin"));
-    let F = (besoin * 10) / debit;
-    setResult(F);
+    console.log("ccc", besoin);
+
+    if (besoin === 0 || besoin === null) {
+      toast.error("veuillez calculer le besoin", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else {
+      let F = (besoin * 10) / debit;
+      setResult(F);
+    }
   }
 
   return (
@@ -33,6 +48,17 @@ export default function Temps() {
       }}
     >
       {" "}
+      <ToastContainer
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <div
         style={{
           textAlign: "center",
