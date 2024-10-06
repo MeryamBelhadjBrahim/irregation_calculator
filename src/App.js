@@ -21,7 +21,7 @@ function App() {
       }}
     >
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/irregation_calculator" element={<Home />} />
         <Route path="/conception" element={<Conception />} />
         <Route path="/temps" element={<Temps />} />
         <Route path="/dose" element={<Dose />} />
