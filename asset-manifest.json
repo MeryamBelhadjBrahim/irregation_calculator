@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/irregation_calculator/static/css/main.22fad8df.css",
-    "main.js": "/irregation_calculator/static/js/main.09548c5b.js",
+    "main.js": "/irregation_calculator/static/js/main.b4c50d69.js",
     "static/js/453.67f9a474.chunk.js": "/irregation_calculator/static/js/453.67f9a474.chunk.js",
     "static/media/conception.png": "/irregation_calculator/static/media/conception.16e0287ce4a32a7281cb.png",
     "static/media/palmier.jpg": "/irregation_calculator/static/media/palmier.70dfe5a0612f2ea7447c.jpg",
@@ -9,11 +9,11 @@
     "static/media/OIP.jfif": "/irregation_calculator/static/media/OIP.a6b110106775891fcd03.jfif",
     "index.html": "/irregation_calculator/index.html",
     "main.22fad8df.css.map": "/irregation_calculator/static/css/main.22fad8df.css.map",
-    "main.09548c5b.js.map": "/irregation_calculator/static/js/main.09548c5b.js.map",
+    "main.b4c50d69.js.map": "/irregation_calculator/static/js/main.b4c50d69.js.map",
     "453.67f9a474.chunk.js.map": "/irregation_calculator/static/js/453.67f9a474.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.22fad8df.css",
-    "static/js/main.09548c5b.js"
+    "static/js/main.b4c50d69.js"
   ]
 }
