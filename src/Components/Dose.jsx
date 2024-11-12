@@ -57,12 +57,23 @@ export default function Dose() {
     if (plante === "") {
       setInputPlante(true);
     }
-    if (typeCulture !== "" && typeSol !== "" && plante !== "") {
+    if (age === 0 || age === "") {
+      setInputAge(true);
+    }
+
+    if (
+      typeCulture !== "" &&
+      typeSol !== "" &&
+      plante !== "" &&
+      age !== 0 &&
+      age !== ""
+    ) {
       let ETC = evaporation[plante.label];
       let humidité = typeSol.value;
       let RFU = (2 / 3) * plante.value * humidité;
-      setResult(RFU + ETC);
-      localStorage.setItem("besoin", JSON.stringify(RFU + ETC));
+      let rs = age > 4 ? RFU + ETC : (RFU + ETC) / 2;
+      setResult(rs);
+      localStorage.setItem("besoin", JSON.stringify(rs));
     }
   }
 
@@ -141,7 +152,9 @@ export default function Dose() {
               <div className="mb-3">
                 <h6>age du plante</h6>
                 <Input
+                  type="number"
                   value={age}
+                  min={0}
                   onChange={(e) => {
                     setAge(e.target.value);
                     setInputAge(false);
