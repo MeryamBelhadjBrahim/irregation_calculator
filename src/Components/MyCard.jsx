@@ -31,9 +31,9 @@ export function MyCard({ text, title, image, handleClick }) {
         {/* <CardSubtitle tag="h6" className="mb-2 text-muted">
           {title}
         </CardSubtitle> */}
-        <CardText style={{ textAlign: "center" }}>
+        {/* <CardText style={{ textAlign: "center" }}>
           ccccccccccccccccccccccccc
-        </CardText>
+        </CardText> */}
       </CardBody>
       <button
         className="btn btn-primary"

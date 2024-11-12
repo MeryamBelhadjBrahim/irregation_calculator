@@ -21,9 +21,8 @@ export default function Temps() {
 
   function handleCalculate() {
     let besoin = JSON.parse(localStorage.getItem("besoin"));
-    console.log("ccc", besoin);
 
-    if (besoin === 0 || besoin === null) {
+    if (besoin === 0 || besoin === null || besoin === "") {
       toast.error("veuillez calculer le besoin", {
         position: "top-center",
         autoClose: 5000,

@@ -1,6 +1,6 @@
 import React from "react";
 import Select from "react-select";
-import { Card, CardBody, Button } from "reactstrap";
+import { Card, CardBody, Button, Input } from "reactstrap";
 
 import DoseImage from "../assets/OIP.jfif";
 
@@ -43,6 +43,8 @@ export default function Dose() {
   const [inputTypeSol, setInputTypeSol] = React.useState(false);
   const [inputPlante, setInputPlante] = React.useState(false);
   const [plante, setPlante] = React.useState("");
+  const [age, setAge] = React.useState(0);
+  const [inputAge, setInputAge] = React.useState(false);
   const [options, setOptions] = React.useState([]);
   const [result, setResult] = React.useState("");
   function handleCalculate() {
@@ -60,7 +62,7 @@ export default function Dose() {
       let humidité = typeSol.value;
       let RFU = (2 / 3) * plante.value * humidité;
       setResult(RFU + ETC);
-      localStorage.setItem("besoin", JSON.stringify(result));
+      localStorage.setItem("besoin", JSON.stringify(RFU + ETC));
     }
   }
 
@@ -135,6 +137,24 @@ export default function Dose() {
                 ) : null}
               </div>
             ) : null}
+            {plante.label === "Palmier datier" ? (
+              <div className="mb-3">
+                <h6>age du plante</h6>
+                <Input
+                  value={age}
+                  onChange={(e) => {
+                    setAge(e.target.value);
+                    setInputAge(false);
+                    setResult("");
+                  }}
+                />
+                {inputAge ? (
+                  <div style={{ color: "red" }}>
+                    Veuillez saisir l'age du palmier
+                  </div>
+                ) : null}
+              </div>
+            ) : null}
             <div className="mb-3">
               <h6>Type de sol</h6>
               <Select
@@ -152,23 +172,6 @@ export default function Dose() {
                 </div>
               ) : null}
             </div>
-            {/* <div className="mb-3">
-              <h6>Profondeur racinaire</h6>
-              <Select
-                options={types}
-                value={typeCulture}
-                onChange={(e) => {
-                  setTypeCulture(e);
-                  setInputTypeCulture(false);
-                  setResult("");
-                }}
-              />
-              {inputTypeCulture ? (
-                <div style={{ color: "red" }}>
-                  Veuillez selectionner le profondeur racinaire
-                </div>
-              ) : null}
-            </div> */}
             <Button
               onClick={handleCalculate}
               style={{ width: "100%", marginBottom: "2%" }}
